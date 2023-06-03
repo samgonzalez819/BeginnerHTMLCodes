@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BMI Calculator</title>
+  <script>
+    function calculateBMI() {
+      var name = document.getElementById("name").value;
+      var age = document.getElementById("age").value;
+      var gender = document.getElementById("gender").value;
+      var height = parseFloat(document.getElementById("height").value);
+      var weight = parseFloat(document.getElementById("weight").value);
+
+      var bmi = 703 *(weight / (height * height));
+
+      var resultText = "Name: " + name + "<br>";
+      resultText += "Age: " + age + "<br>";
+      resultText += "Gender: " + gender + "<br>";
+      resultText += "Height: " + height + " inches<br>";
+      resultText += "Weight: " + weight + " lbs<br>";
+      resultText += "BMI: " + bmi.toFixed(2);
+
+      document.getElementById("result").innerHTML = resultText;
+    }
+  </script>
+</head>
+<body>
+  <h1>BMI Calculator</h1>
+
+  <label for="name">Name:</label>
+  <input type="text" id="name"><br>
+
+  <label for="age">Age:</label>
+  <input type="text" id="age"><br>
+
+  <label for="gender">Gender:</label>
+  <input type="text" id="gender"><br>
+
+  <label for="height">Height (in inches):</label>
+  <input type="text" id="height"><br>
+
+  <label for="weight">Weight (in lbs):</label>
+  <input type="text" id="weight"><br>
+
+  <button onclick="calculateBMI()">Calculate BMI</button>
+
+  <div id="result"></div>
+</body>
+</html>

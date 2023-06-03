@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Birthday</title>
+  <script>
+    function getInfo() {
+      var name = document.getElementById("name").value;
+      var gender = document.getElementById("gender").value;
+      var month = parseFloat(document.getElementById("month").value);
+      var day = parseFloat(document.getElementById("day").value);
+      var year = parseFloat(document.getElementById("year").value);
+
+      var monthName;
+      if(month == 1)
+      {
+        monthName = "January";
+      }
+      else if(month == 2)
+      {
+        monthName = "Febuary";
+      }
+      else if(month == 3)
+      {
+        monthName = "March";
+      }
+      else if(month == 4)
+      {
+        monthName = "April";
+      }
+      else if(month == 5)
+      {
+        monthName = "May";
+      }
+      else if(month == 6)
+      {
+        monthName = "June";
+      }
+      else if(month == 7)
+      {
+        monthName = "July";
+      }
+      else if(month == 8)
+      {
+        monthName = "August";
+      }
+      else if(month == 9)
+      {
+        monthName = "September";
+      }
+      else if(month == 10)
+      {
+        monthName = "October";
+      }
+      else if(month == 11)
+      {
+        monthName = "November";
+      }
+      else if(month == 12)
+      {
+        monthName = "December";
+      }
+      var birthMean;
+      if ((day == 1) || (day == 10) || (day == 19))
+      {
+        birthMean = "Natural Leader and Hungry for Success";
+      }
+      else if ((day == 2) || (day == 11) || (day == 20))
+      {
+        birthMean = "Diplomatic";
+      }
+      else if ((day == 3) || (day == 12) || (day == 21) || (day == 30))
+      {
+        birthMean = "Knowlegable";
+      }
+      else if ((day == 4) || (day == 13) || (day == 22) || (day == 31))
+      {
+        birthMean = "Hard Working";
+      }
+      else if ((day == 5) ||(day == 14) || (day == 23))
+      {
+        birthMean = "Adventurous";
+      }
+      else if ((day == 6) || (day == 15) || (day == 24))
+      {
+        birthMean = "Responsible, Honest, Reliable";
+      }
+      else if ((day == 7) || (day == 16) || (day == 25))
+      {
+        birthMean = "Knowlegable";
+      }
+      else if ((day == 8) || (day == 17) || (day == 26))
+      {
+        birthMean = "Wealthy";
+      }
+      else if ((day == 9) || (day == 18) || (day == 27))
+      {
+        birthMean = "Artistic";
+      }
+
+      var resultText = "Name: " + name + "<br>";
+      resultText += "Gender: " + gender + "<br>";
+      resultText += month + "/";
+      resultText += day + "/";
+      resultText += year + "<br>";
+      resultText += "Your birth month is "  + monthName + "<br>";
+      resultText += "Your date of birth is " + day + "<br>";
+      resultText += "Your year of birth is " + year + "<br>";
+      resultText += "You are " + birthMean + "<br>";
+
+
+      document.getElementById("result").innerHTML = resultText;
+    }
+  </script>
+</head>
+<body>
+  <h1>Birthday</h1>
+
+  <label for="name">Name:</label>
+  <input type="text" id="name"><br>
+
+  <label for="gender">Gender:</label>
+  <input type="text" id="gender"><br>
+
+  <label for="month">Birth Month (1-12):</label>
+  <input type="text" id="month"><br>
+
+  <label for="day">Birth Day (1-31):</label>
+  <input type="text" id="day"><br>
+
+  <label for="year">Year:</label>
+  <input type="text" id="year"><br>
+
+  <button onclick="getInfo()">Submit</button>
+
+  <div id="result"></div>
+</body>
+</html>

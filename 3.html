@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gradebook</title>
+  <script>
+    function calculateGrade() {
+      var name = document.getElementById("name").value;
+      var course = document.getElementById("course").value;
+      var grades = document.getElementsByClassName("grade");
+      var weights = document.getElementsByClassName("weight");
+      var grade = 0;
+      var weightSum = 0;
+
+      for (var i = 0; i < grades.length; i++) {
+        var gradeValue = parseFloat(grades[i].value);
+        var weightValue = parseFloat(weights[i].value);
+
+        grade += gradeValue * weightValue;
+        weightSum += weightValue;
+      }
+
+      var result = grade / weightSum;
+
+      var gradeLetter;
+      switch (true) {
+        case (result < 60):
+          gradeLetter = "F";
+          break;
+        case (result < 70):
+          gradeLetter = "D";
+          break;
+        case (result < 80):
+          gradeLetter = "C";
+          break;
+        case (result < 90):
+          gradeLetter = "B";
+          break;
+        default:
+          gradeLetter = "A";
+          break;
+      }
+
+      var resultText = "Name: " + name + "<br>";
+      resultText += "Course: " + course + "<br>";
+      resultText += "Overall Grade: " + result.toFixed(2) + "%" + " " + gradeLetter;
+
+      document.getElementById("result").innerHTML = resultText;
+    }
+  </script>
+</head>
+<body>
+  <h1>Gradebook</h1>
+  <form>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name"><br>
+
+    <label for="course">Course:</label>
+    <input type="text" id="course" name="course"><br>
+
+    <label for="grades">Grades:</label><br>
+    <input type="text" class="grade" name="grade1" placeholder="Grade 1">
+    <input type="text" class="weight" name="weight1" placeholder="Weight 1"><br>
+    <input type="text" class="grade" name="grade2" placeholder="Grade 2">
+    <input type="text" class="weight" name="weight2" placeholder="Weight 2"><br>
+    <input type="text" class="grade" name="grade3" placeholder="Grade 3">
+    <input type="text" class="weight" name="weight3" placeholder="Weight 3"><br>
+
+    <label for="percentage">Percentage:</label>
+    <input type="text" id="percentage" name="percentage"><br>
+
+    <button type="button" onclick="calculateGrade()">Calculate</button>
+  </form>
+
+  <div id="result"></div>
+</body>
+</html>
